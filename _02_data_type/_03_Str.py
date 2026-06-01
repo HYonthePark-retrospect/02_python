@@ -146,6 +146,7 @@ print(origin_str.capitalize())    # Hello world!
 print(origin_str.swapcase())      # Hello World!
 print(origin_str.title())         # Hello World!
 
+
 # id(변수명) : 변수에 버장된 값의 주소(위치)를 반환
 print("--- 문자열 불변 타입 ---")
 s = 'python' # s에는 'python' str 메모리 주소가 저장됨
