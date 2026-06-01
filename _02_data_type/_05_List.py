@@ -139,3 +139,73 @@ for v in lst:
 # list 인덱스, 요소 순회 / enumerate(열거하다(나열하다))
 for index, v in enumerate(lst):
     print(f'lst[{index}]: {v}')
+
+# list api
+
+# list.count(값): list 내에 같은 값이 몇개 있는가? / 길이은 len == length
+print('--- list.count(값) ---')
+fruits = ['apple', 'banana', 'blueberry', 'apple', 'dragonfruit']
+print('fruits.count("apple"):', fruits.count('apple'))
+print('fruits.count("banana"):', fruits.count('banana'))
+print('fruits.count("melon"):', fruits.count('melon'))
+
+# sort : 정렬하다 / 정렬방식은 2개가 존재함 같아보이나 원리가 다름
+# list.sort() : 원본 리스트 내에서 정렬(in-place), 원본 자체가 변하는것
+# -> 원본 데이터가 변경(원본 데이터 손실), 전의 내용을 알 수 없음
+
+# sorted(list) : 새 리스트를 만들어서 반환(not-in-place), 안에서 정렬이 아닌 새로 작성
+# -> 원본 데이터가 별도로 유지
+
+print('--- list.sort() : 원본 변경 ---')
+nums = [100, 30, 50, 44, 88]
+print('nums :', nums)
+
+nums.sort() # 오름차순 정렬 수행 / 점점 커지는것
+print('오름차순 정렬된 nums', nums)
+
+nums.sort(reverse=True) # 내림차순 정렬 수행 == 정렬 뒤집기 / 점점 작아지는것
+print('내림차순 정렬된 nums', nums)
+
+# key 속성 -> 정렬 기준 부여 함수
+print('--- ket 속성 -> 정렬 기준 함수 ---')
+fruits.append("kiwi")
+print('fruits :', fruits)
+
+# len 함수를 정렬 기준으로 설정 / 길이
+fruits.sort(key=len)
+print('정렬 후 fruits :', fruits)
+
+# 커스텀 정렬기준함수
+def my_sort(elem):
+    return len(elem), elem # tuple로 우선순위 지정
+
+fruits.sort(key=my_sort)
+print('커스텀 정렬 후 fruits : ', fruits)
+
+# sorted(list) : 원본 유지 정렬 (새 list 반환)
+print('--- sorted(list) ---')
+nums = [9, 2, 4, 7, 1]
+nums2 = sorted(nums)
+print('원본 nums:', nums)
+print('sorted nums :', nums2)
+
+
+print('--- list unpacking ---')
+# list unpacking(묶음 풀기)
+# - list == 변수의 묶음, packing이 되어있는것
+numbers = [10, 20, 30]
+# a = numbers[0]
+# b = numbers[1]
+# c = numbers[2]
+
+a, b, c = numbers
+print(a, b, c)
+
+# d = 0번 인덱스 요소(10)
+# *e = 첫번째 꺼 뺀 나머니 1,2 인덱스 요소 [20, 30] -> 나머지를 list 형태로 반환
+d, *e = numbers
+print(d, e)
+
+numbers = [10, 20, 30, 40, 50]
+a, *b, c = numbers #c가 나머지가 아닌 제일 마지막 숫자
+print(a, b, c)
