@@ -84,3 +84,4 @@ else: # list가 비어있다면 False
     print('필수 패키지가 모두 설치 되어 있습니다')
     print_installed_versions()
     print_import_results()
+    
